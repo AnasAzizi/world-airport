@@ -1,8 +1,10 @@
 const apiKey = "9u7AlKCcjzdkg9WJqhL/Bw==vzF3y5o9TKESppE1";
 let airportLatitude = 0;
 let airportLongitude = 0;
+let country;
 let map;
 let marker;
+let timezone;
 
 const mapEl = document.getElementById("map");
 mapEl.style.visibility = "hidden";
@@ -39,6 +41,8 @@ async function getAirportData() {
             const data = await response.json();
             airportLatitude = data[0].latitude;
             airportLongitude = data[0].longitude;
+            timezone = data[0].timezone;
+            country = data[0].country;
             // set location the user searched
             map.setView([airportLatitude, airportLongitude], 13);
             //check if there location already
@@ -48,7 +52,7 @@ async function getAirportData() {
             marker = L.marker([airportLatitude, airportLongitude]).addTo(map);
             marker
                 .bindPopup(
-                    `<b>${airportName}</b><br>Latitude: ${airportLatitude}<br>Longitude: ${airportLongitude}`
+                    `<b>country:${country}/${airportName}</b><br>Latitude: ${airportLatitude}<br>Longitude: ${airportLongitude}<br>Timezone: ${timezone}`
                 )
                 .openPopup();
         }

@@ -8,11 +8,6 @@
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
 }
 
-#map {
-  height: 450px;
-  width: 800px;
-}
-
 input[type="text"]:focus {
   outline: none;
   border: none;
