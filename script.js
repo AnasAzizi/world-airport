@@ -4,8 +4,8 @@ let airportLongitude = 0;
 let map;
 let marker;
 
-const mapEl=document.getElementById("map");
-mapEl.style.visibility="hidden";
+const mapEl = document.getElementById("map");
+mapEl.style.visibility = "hidden";
 //initialize default map
 map = L.map("map").setView([39.1667, 35.6667], 6);
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -17,9 +17,9 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 async function getAirportData() {
     const airportName = document.getElementById("airportName").value.toLowerCase();
 
-    if(airportName===""){
-        window.alert("plz");
-    }   
+    if (airportName === "") {
+        window.alert("Please enter an airport name");
+    }
 
     const apiUrl = `https://api.api-ninjas.com/v1/airports?name=${airportName}`;
 
@@ -35,7 +35,7 @@ async function getAirportData() {
         if (!response.ok) {
             throw new Error("Could not fetch response");
         } else {
-            mapEl.style.visibility="visible";
+            mapEl.style.visibility = "visible";
             const data = await response.json();
             airportLatitude = data[0].latitude;
             airportLongitude = data[0].longitude;
@@ -59,4 +59,5 @@ async function getAirportData() {
 
 document.getElementById("fetchButton").addEventListener("click", getAirportData);
 
-
+const date = new Date();
+document.getElementById("date").textContent = date;
