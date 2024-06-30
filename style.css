@@ -8,6 +8,10 @@
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
 }
 
+body {
+  overflow: hidden;
+}
+
 input[type="text"]:focus {
   outline: none;
   border: none;
@@ -15,5 +19,7 @@ input[type="text"]:focus {
 
 .container {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(255, 255, 255, 0.5)),url("./images/bg-image.jpg");
-  min-height: 740px;
+}
+.leaflet-control-attribution {
+  display: none;
 }

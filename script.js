@@ -52,7 +52,7 @@ async function getAirportData() {
             marker = L.marker([airportLatitude, airportLongitude]).addTo(map);
             marker
                 .bindPopup(
-                    `<b>country:${country}/${airportName}</b><br>Latitude: ${airportLatitude}<br>Longitude: ${airportLongitude}<br>Timezone: ${timezone}`
+                    `<b>country: ${country}/${airportName}</b><br>Latitude: ${airportLatitude}<br>Longitude: ${airportLongitude}<br>Timezone: ${timezone}`
                 )
                 .openPopup();
         }
